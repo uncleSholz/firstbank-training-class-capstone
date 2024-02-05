@@ -3,7 +3,7 @@
 There are two criteria for this project:
 
 1. You are able to utlize prompt engineering in this codebase so that the GPT model is able to generate better image prompts for DALL-E
-2. You are able to improve the User Experience of the Dash app so that a user can see:
+2. You are able to improve the User Experience of the Dash app so that a user can see:\
     i. The generated prompt\
     ii. The loading time\
     iii. Better UI elements
