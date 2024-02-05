@@ -49,7 +49,7 @@ def generate_image_from_prompt(prompt):
         print(ex)
 
 
-def main(value):
+def generate_prompt(value):
     load_dotenv()
     azure_oai_endpoint = os.getenv("AZURE_OAI_ENDPOINT")
     azure_oai_key = os.getenv("AZURE_OAI_KEY")
@@ -100,7 +100,7 @@ app.layout = html.Div([
     prevent_initial_call=True
 )
 def generate_image(n_clicks, value):
-    image_url = main(value)
+    image_url = generate_prompt(value)
 
     return image_url
 
