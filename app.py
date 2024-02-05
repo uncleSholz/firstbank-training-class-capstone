@@ -24,7 +24,7 @@ def generate_image_from_prompt(prompt):
         headers= { "api-key": api_key, "Content-Type": "application/json" }
         body = {
             "prompt": prompt,
-            "n": 1,
+            "n": 2,
             "size": "512x512"
         }
         submission = requests.post(url, headers=headers, json=body)
@@ -39,6 +39,7 @@ def generate_image_from_prompt(prompt):
             response = requests.get(operation_location, headers=headers)
             status = response.json()['status']
 
+        print(response.json())
         # Get the results
         image_url = response.json()['result']['data'][0]['url']
 
@@ -66,10 +67,13 @@ def generate_prompt(value):
         temperature=0.7,
         max_tokens=120,
         messages=[
-            {"role": "system", "content": "You are a helpful assistant."},
+            {"role": "system", "content": "You are an expert at generating DallE prompts"},
             {"role": "user", "content": value}
         ]
     )
+
+    print(response.choices[0].message.content)
+
 
     prompt = response.choices[0].message.content
 
